@@ -17,3 +17,10 @@ lazy val root = Project(
 lazy val core = Project(id = "core",
   base = file("1uzd"))
 
+lazy val printClasspath = taskKey[Unit]("Dump classpath")
+
+printClasspath :=
+  (fullClasspath in Runtime value)
+    .foreach(e => println(e.data))
+
+
