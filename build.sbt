@@ -7,3 +7,13 @@ scalaVersion := "2.11.7"
 baseAssemblySettings
 
 assemblyJarName in assembly := "Fractals.jar"
+
+lazy val root = Project(
+  id = "scalaMpjTest",
+  base = file("."))
+  .dependsOn(core)
+  .aggregate(core)
+
+lazy val core = Project(id = "core",
+  base = file("1uzd"))
+
